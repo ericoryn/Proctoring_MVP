@@ -1,0 +1,3 @@
+# Install live-mode extras using the validated dependency versions.
+-c requirements-validated.txt
+-e .[vision,windows]

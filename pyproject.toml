@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-proctoring-mvp"
+version = "0.1.0"
+description = "Local Windows proctoring with latest-frame inference and fail-closed sessions"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+vision = ["opencv-python==4.13.0.92", "opencv-contrib-python==4.13.0.92", "ultralytics>=8.3,<9", "mediapipe>=0.10.20,<0.11"]
+windows = ["pywin32>=306; sys_platform == 'win32'", "keyboard>=0.13.5,<0.14; sys_platform == 'win32'"]
+build = ["build>=1,<2", "wheel>=0.43", "setuptools>=68"]
+
+[project.scripts]
+proctoring = "proctoring.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["proctoring*"]
